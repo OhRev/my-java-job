@@ -1,14 +1,13 @@
 pipeline{
   agent any
+  tools {
+    maven M3
+    }
   stages {
     stage('Build') {
-      wtihMaven(
-        maven: 'M3'
-      ){
       steps{
           bat'mvn -B -DskipTests clean package'
-      }
-      }}
+      }      
     stage('Test'){
       steps {
           bat 'mvn test'
